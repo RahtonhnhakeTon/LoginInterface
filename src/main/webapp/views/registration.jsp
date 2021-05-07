@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login</title>
+    <title>Login V18</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -45,48 +45,68 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <spring_form:form class="login100-form validate-form" action="validate" method="post" modelAttribute="cred">
+            <spring_form:form class = "login100-form validate-form" cssStyle="padding-top: 75px" action = "save" method="post" modelAttribute="user">
 					<span class="login100-form-title p-b-43">
-						Login to continue
+						Please enter your details
 					</span>
+                <spring_form:hidden path="id" />
+                <spring_form:hidden path="passwordHash" />
+                    <div class="wrap-input100 validate-input" data-validate = "Valid Name is required">
+                        <spring_form:input cssClass="input100 has-val" maxlength="20" type="text" path="name"   />
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Name</span>
+                    </div>
 
-                <spring_form:hidden path="key"/>
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <spring_form:input class="input100 has-val" maxlength="30" type="text" path="email"/>
+                    <spring_form:input cssClass="input100 has-val" maxlength="30" type="text" path="email" />
                     <span class="focus-input100"></span>
                     <span class="label-input100">Email</span>
                 </div>
 
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <spring_form:input class="input100 has-val" type="password" path="password"/>
+                    <spring_form:input cssClass="input100 has-val" type="password" path="password"   />
                     <span class="focus-input100"></span>
                     <span class="label-input100">Password</span>
                 </div>
 
+                <div class="wrap-input100 validate-input" data-validate = "Valid date is required">
+                    <spring_form:input cssClass="input100 has-val" type="date" path="dateOfBirth"   />
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Date of Birth</span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid Number is required">
+                    <spring_form:input cssClass="input100 has-val" maxlength="10" type="text" path="mobile"   />
+                    <span class="focus-input100"></span>
+                    <span class="label-input100 ">Mobile No.</span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid Location is required">
+                    <spring_form:input cssClass="input100 has-val" maxlength="20" type="text" path="location"   />
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Location</span>
+                </div>
+
                 <div class="flex-sb-m w-full p-t-3 p-b-32">
-                    <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                        <label class="label-checkbox100" for="ckb1">
-                            Remember me
-                        </label>
-                    </div>
 
                 </div>
 
 
                 <div class="container-login100-form-btn">
-                    <spring_form:button class="login100-form-btn">
-                        Login
+                    <spring_form:button class="login100-form-btn" >
+                        Submit
                     </spring_form:button>
-                </div>
 
+                </div>
+                <spring:url value="/" var="index"/>
                 <div class="text-center p-t-46 p-b-20">
 						<span class="txt2">
-                            or <a href="registration" style="color: #7974ff">sign up here</a>
+                            <a href="${index}" style="color: #7974ff">already a member?</a>
 						</span>
                 </div>
-            </spring_form:form>
+                </spring_form:form>
+            </form>
             <spring:url value="/resources/images/bg-01.jpg" var="bg"/>
             <div class="login100-more" style="background-image: url('${bg}');">
             </div>
